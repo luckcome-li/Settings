@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file('E:\\3399\\SettingsKey\\DragonX.jks')
+            storePassword '04273610'
+            keyAlias = 'dragonx'
+            keyPassword '04273610'
+        }
+        release {
+            storeFile file('E:\\3399\\SettingsKey\\DragonX.jks')
+            storePassword '04273610'
+            keyAlias = 'dragonx'
+            keyPassword '04273610'
+        }
+    }
+
+    compileSdkVersion 27
+    defaultConfig {
+
+        applicationId "com.luckcome.settings"
+        minSdkVersion 27
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    buildToolsVersion = '28.0.3'
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation files('libs/android-support-v7-cardview_intermediates.jar')
+    implementation files('libs/android-support-v7-gridlayout_intermediates.jar')
+    implementation files('libs/android-support-v7-mediarouter_intermediates.jar')
+    implementation files('libs/android-support-v7-palette_intermediates.jar')
+    implementation files('libs/android-support-v7-preference_intermediates.jar')
+    implementation files('libs/android-support-v7-recyclerview_intermediates.jar')
+    implementation files('libs/android-support-v14-preference_intermediates.jar')
+    implementation files('libs/android_stubs_current_intermediates.jar')
+    implementation files('libs/bouncycastle_intermediates.jar')
+    implementation files('libs/conscrypt_intermediates.jar')
+    implementation files('libs/core-libart_intermediates.jar')
+    implementation files('libs/ext_intermediates.jar')
+    implementation files('libs/framework_intermediates.jar')
+    implementation files('libs/ims-common_intermediates.jar')
+    implementation files('libs/jsr305_intermediates.jar')
+    implementation files('libs/SettingsLib_intermediates.jar')
+    implementation files('libs/setup-wizard-lib_intermediates.jar')
+    implementation files('libs/telephony-common_intermediates.jar')
+    implementation files('libs/android-support-v7-appcompat_intermediates.jar')
+    implementation files('libs/android-support-v13_intermediates.jar')
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
